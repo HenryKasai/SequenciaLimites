@@ -6,33 +6,41 @@ namespace SequenciaLimites
     {
         static void Main(string[] args)
         {    
-            int númeroum, númerodois;
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("Insira dois números inteiros.");
-            Console.WriteLine("Primeiro número: ");
-            bool númeroumbool = Int32.TryParse(Console.ReadLine(), out númeroum);
-            Console.WriteLine("Segundo número: ");
-            bool númerodoisbool = Int32.TryParse(Console.ReadLine(), out númerodois);
+            bool terminar = false;
 
-            if (!númeroumbool || !númerodoisbool || númeroum > númerodois)
+            while (!terminar)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Valor inválido.");
-                Console.ResetColor();
-                Environment.Exit(-1);
-            }
-            
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                while (númeroum <= númerodois)
+                int númeroum, númerodois;
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("Insira dois números inteiros.");
+                Console.WriteLine("Primeiro número: ");
+                bool númeroumbool = Int32.TryParse(Console.ReadLine(), out númeroum);
+                Console.WriteLine("Segundo número: ");
+                bool númerodoisbool = Int32.TryParse(Console.ReadLine(), out númerodois);
+
+                if (!númeroumbool || !númerodoisbool || númeroum > númerodois)
                 {
-                Console.Write($"{númeroum} ");
-                númeroum = númeroum + 1;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Valor inválido.");
+                    Console.WriteLine("Pressione uma tecla para escolher os valores novamente.");
+                    Console.ReadKey();
                 }
-                Console.ResetColor();
-            }
             
+                else
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    while (númeroum <= númerodois)
+                    {
+                    Console.Write($"{númeroum} ");
+                    númeroum = númeroum + 1;
+                    }
+                    terminar = true;
+                }
+            }    
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("\nPressione uma tecla para finalizar o programa.");
+            Console.ReadKey();
             
 
         }
