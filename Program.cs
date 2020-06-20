@@ -13,9 +13,9 @@ namespace SequenciaLimites
                 int númeroum, númerodois;
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Insira dois números inteiros.");
-                Console.WriteLine("Primeiro número: ");
+                Console.Write("Primeiro número: ");
                 bool númeroumbool = Int32.TryParse(Console.ReadLine(), out númeroum);
-                Console.WriteLine("Segundo número: ");
+                Console.Write("Segundo número: ");
                 bool númerodoisbool = Int32.TryParse(Console.ReadLine(), out númerodois);
 
                 if (!númeroumbool || !númerodoisbool || númeroum > númerodois)
